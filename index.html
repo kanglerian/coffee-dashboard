@@ -7,25 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/all.min.css">
   <link href="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/custom.css">
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .paginate_button {
-      background-color: #cbd5e1!important;
-      font-size: 14px!important;
-      border-radius: 0.5rem!important;
-    }
-    .paginate_button.current {
-      color: #FFFFFF!important;
-      background-color: #0ea5e9!important;
-      border: 1px solid #f1f5f9!important;
-    }
-    .dataTables_filter > label > input {
-      border: 1px solid #cbd5e1!important;
-      border-radius: 0.5rem!important;
-      background-color: #f9fafb!important;
-      margin-bottom: 10px
-    }
-  </style>
   <title>Dashboard</title>
 </head>
 
@@ -78,7 +62,7 @@
       <!-- Main content -->
       <main class="bg-gray-50 overflow-y-auto p-5">
         <!-- Main content -->
-        <div class="bg-white p-4 rounded-lg shadow space-y-3">
+        <div class="bg-white p-5 rounded-lg shadow space-y-3">
           <div class="space-y-2">
             <h1 class="font-bold text-2xl">Form Transaksi</h1>
             <p class="text-sm text-gray-700">Lorem ipsum dolor sit amet consectetur adipisicing elit. In, quis?</p>
@@ -108,7 +92,7 @@
           </div>
           <hr>
           <div class="relative overflow-x-auto">
-            <table id="transaction" class="w-full text-sm text-left text-gray-800">
+            <table id="transaction" class="table-tailwindcss w-full text-sm text-left text-gray-800">
               <thead class="bg-gray-50">
                 <tr>
                   <th class="px-6 py-2 rounded-l-lg">Kode</th>
@@ -119,19 +103,23 @@
                   <th class="px-6 py-2 rounded-r-lg">Aksi</th>
                 </tr>
               </thead>
-              <tbody class="text-gray-700">
+              <tbody class="text-gray-700" id="result">
                 <tr class="bg-white border-b">
                   <td class="px-6 py-2">BC001</td>
-                  <td class="px-6 py-2">Mie Goreng</td>
+                  <td class="px-6 py-2">
+                    <select class="product" name="states[]">
+                      <option value="AL">Alabama</option>
+                      <option value="WY">Wyoming</option>
+                    </select>
+                  </td>
                   <td class="px-6 py-2">Rp3.000</td>
                   <td class="px-6 py-2">2</td>
                   <td class="px-6 py-2">Rp6.000</td>
                   <td class="px-6 py-2 space-y-1 md:space-y-0">
-                    <button class="px-2 py-1 bg-red-500 hover:bg-red-600 rounded-md text-white"><i class="fa-solid fa-circle-xmark"></i></button>
-                    <button class="px-2 py-1 bg-sky-500 hover:bg-sky-600 rounded-md text-white"><i class="fa-solid fa-circle-plus"></i></button>
+                    <button onclick="deleteItem(this)" class="px-2 py-1 bg-red-500 hover:bg-red-600 rounded-md text-white"><i class="fa-solid fa-circle-xmark"></i></button>
+                    <button onclick="addItem()" class="px-2 py-1 bg-sky-500 hover:bg-sky-600 rounded-md text-white"><i class="fa-solid fa-circle-plus"></i></button>
                   </td>
                 </tr>
-
               </tbody>
             </table>
             <div class="flex flex-col md:flex-row justify-between items-center gap-3 mt-3 border bg-gray-50 p-4 rounded-lg">
@@ -155,10 +143,12 @@
   </div>
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script src="./js/all.min.js"></script>
   <script>
     $(document).ready(function() {
-      $('#transaction').DataTable();
+      $('.table-tailwindcss ').DataTable();
+      $('.product').select2();
     });
   </script>
   <script>
@@ -169,6 +159,33 @@
       sidebar.classList.toggle('hidden');
     });
   </script>
+
+<script type="text/javascript">
+  const addItem = () => {
+    $('#result').append(`
+    <tr class="bg-white border-b">
+      <td class="px-6 py-2">BC001</td>
+      <td class="px-6 py-2">
+        <select class="product" name="states[]">
+          <option value="AL">Alabama</option>
+          <option value="WY">Wyoming</option>
+        </select>
+      </td>
+      <td class="px-6 py-2">Rp3.000</td>
+      <td class="px-6 py-2">2</td>
+      <td class="px-6 py-2">Rp6.000</td>
+      <td class="px-6 py-2 space-y-1 md:space-y-0">
+        <button onclick="deleteItem(this)" class="px-2 py-1 bg-red-500 hover:bg-red-600 rounded-md text-white"><i class="fa-solid fa-circle-xmark"></i></button>
+        <button onclick="addItem()" class="px-2 py-1 bg-sky-500 hover:bg-sky-600 rounded-md text-white"><i class="fa-solid fa-circle-plus"></i></button>
+      </td>
+    </tr>
+      `)
+      $('.product').select2();
+    }
+    const deleteItem = (element) => {
+      $(element).closest('tr').remove();
+    }
+    </script>
 </body>
 
 </html>
