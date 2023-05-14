@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/all.min.css">
+  <link href="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/sweetalert2.min.css">
+  <link rel="stylesheet" href="./css/custom.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Data Barang - Morning Coffee</title>
+</head>
+
+<body>
+  <div class="flex flex-row h-screen bg-gray-50">
+    <aside class="w-2/12 bg-white border-r">
+      <div class="flex justify-center items-center gap-2 py-2">
+        <img src="./img/logo.jpeg" alt="" class="w-14">
+        <h2 class="hidden md:inline font-bold text-teal-800">Morning Coffee</h2>
+      </div>
+      <ul class="space-y-2 m-4 text-sm">
+        <li class="flex justify-center md:justify-start items-center hover:bg-gray-100 rounded-lg px-3 py-2">
+          <a href="./index.html" class="text-gray-800 hover:text-gray-900 md:space-x-2">
+            <i class="fa-solid fa-chart-pie"></i><span class="hidden md:inline">Dashboard</span>
+          </a>
+        </li>
+        <li class="flex justify-center md:justify-start items-center hover:bg-gray-100 rounded-lg px-3 py-2">
+          <a href="./data.html" class="text-gray-800 hover:text-gray-900 md:space-x-2">
+            <i class="fa-solid fa-database"></i><span class="hidden md:inline">Data Barang</span>
+          </a>
+        </li>
+        <li class="flex justify-center md:justify-start items-center hover:bg-gray-100 rounded-lg px-3 py-2">
+          <a href="./transaksi.html" class="text-gray-800 hover:text-gray-900 md:space-x-2">
+            <i class="fa-solid fa-cash-register"></i><span class="hidden md:inline">Transaksi</span>
+          </a>
+        </li>
+      </ul>
+      <hr>
+      <ul class="space-y-2 m-4 text-sm">
+        <li class="flex justify-center md:justify-start hover:bg-gray-100 rounded-lg px-3 py-2">
+          <a href="#" class="text-gray-800 hover:text-gray-900 md:space-x-2">
+            <i class="fa-solid fa-gears"></i><span class="hidden md:inline">Setting</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+    <div class="w-10/12 flex flex-col">
+      <!-- Aside -->
+      <nav class="w-full bg-white">
+        <!-- Navbar content -->
+        <div class="flex justify-between border-b items-center py-2 px-4">
+          <div class="flex justify-center items-center gap-2">
+            <input type="text" placeholder="Cari barang disini..." class="w-full border px-3 py-2 rounded-lg text-sm">
+            <button class="bg-sky-500 hover:bg-sky-600 text-white px-3 py-1 rounded-lg"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </div>
+          <div class="flex justify-center items-center gap-3">
+            <h2 class="hidden md:inline font-bold text-sm text-gray-800 bg-gray-100 px-3 py-1 rounded-lg">Administrator</h2>
+            <img src="./img/user.jpg" alt="" class="hidden md:inline rounded-full w-8">
+            <a href="./login.html">
+              <i class="fa-solid fa-right-from-bracket"></i>
+            </a>
+          </div>
+        </div>
+      </nav>
+      <!-- Main content -->
+      <main class="bg-gray-50 overflow-y-auto p-5">
+        <!-- Main content -->
+        <div class="bg-white p-8 rounded-lg shadow space-y-3">
+          <div class="space-y-2">
+            <h1 class="font-bold text-2xl">Data Barang</h1>
+            <p class="text-sm text-gray-700">Lorem ipsum dolor sit amet consectetur adipisicing elit. In, quis?</p>
+          </div>
+          <hr>
+          <div>
+            <form action="#" method="post">
+              <div class="flex flex-col md:flex-row items-end gap-5">
+                <div class="w-full md:w-3/12 space-y-3">
+                  <div class="flex flex-col">
+                    <label class="text-sm mb-1">Kode Barang:</label>
+                    <input type="text" placeholder="Masukan kode barang" class="border px-2 py-1 rounded-md text-gray-900 bg-gray-50 text-sm">
+                  </div>
+                </div>
+                <div class="w-full md:w-3/12 space-y-3">
+                  <div class="flex flex-col">
+                    <label class="text-sm mb-1">Nama Barang:</label>
+                    <input type="text" placeholder="Masukan nama barang" class="border px-2 py-1 rounded-md text-gray-900 bg-gray-50 text-sm">
+                  </div>
+                </div>
+                <div class="w-full md:w-3/12 space-y-3">
+                  <div class="flex flex-col">
+                    <label class="text-sm mb-1">Harga Barang:</label>
+                    <input type="number" placeholder="Rp0" class="border px-2 py-1 rounded-md text-gray-900 bg-gray-50 text-sm">
+                  </div>
+                </div>
+                <div class="w-full md:w-2/12 space-y-3">
+                  <div class="flex flex-col">
+                    <label class="text-sm mb-1">Stok:</label>
+                    <input type="text" placeholder="0" class="border px-2 py-1 rounded-md text-gray-900 bg-gray-50 text-sm">
+                  </div>
+                </div>
+                <div class="w-full md:w-auto space-y-3">
+                  <button type="button" onclick="saveData()" name="button" class="flex items-center gap-2 bg-sky-500 hover:bg-sky-600 px-3 py-1 text-white rounded-md text-sm"><i class="fa-solid fa-floppy-disk"></i> <span>Simpan</span></button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <hr>
+          <div class="relative overflow-x-auto">
+            <table id="transaction" class="table-tailwindcss w-full text-sm text-left text-gray-800">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th class="px-6 py-2 rounded-l-lg">Kode</th>
+                  <th class="px-6 py-2">Nama Barang</th>
+                  <th class="px-6 py-2">Harga</th>
+                  <th class="px-6 py-2">Stok</th>
+                  <th class="px-6 py-2 rounded-r-lg">Aksi</th>
+                </tr>
+              </thead>
+              <tbody class="text-gray-700" id="result">
+                <tr class="bg-white border-b">
+                  <td class="px-6 py-2">BR001</td>
+                  <td class="px-6 py-2">Indomie Goreng</td>
+                  <td class="px-6 py-2">Rp3.000</td>
+                  <td class="px-6 py-2">50</td>
+                  <td class="px-6 py-2 space-y-1 md:space-y-0">
+                    <button onclick="openModal('edit-1')" class="px-2 py-1 bg-amber-500 hover:bg-amber-600 rounded-md text-white"><i class="fa-solid fa-pen-to-square"></i></button>
+                    <button onclick="confirmDelete()" class="px-2 py-1 bg-red-500 hover:bg-red-600 rounded-md text-white"><i class="fa-solid fa-trash"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+      </main>
+
+      <!-- <footer class="text-center border-t py-2">
+      <p class="text-gray-700 text-xs">© 2019-2022 Flowbite.com. All rights reserved.</p>
+    </footer> -->
+
+  </div>
+</div>
+
+<div id="edit-1" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0  max-h-full flex justify-center items-center">
+  <div class="relative w-full max-w-md max-h-screen">
+    <div class="fixed inset-0 bg-black bg-opacity-70"></div>
+    <div class="relative bg-white rounded-lg shadow">
+      <button onclick="closeModal('edit-1')" type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="p-6 text-left">
+        <div class="space-y-1">
+          <h3 class="font-bold text-gray-900">Edit Barang</h3>
+          <p class="text-sm text-gray-700">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        </div>
+        <hr class="my-3">
+        <form action="#" method="post">
+          <div class="space-y-2 mb-3">
+            <div class="w-full flex flex-col">
+              <label class="text-sm mb-1">Kode Barang:</label>
+              <input type="text" value="BR001" class="w-full border px-2 py-1 rounded-md text-gray-900 bg-gray-50 text-sm">
+            </div>
+            <div class="w-full flex flex-col">
+              <label class="text-sm mb-1">Nama Barang:</label>
+              <input type="text" value="Indomie Goreng" class="w-full border px-2 py-1 rounded-md text-gray-900 bg-gray-50 text-sm">
+            </div>
+            <div class="w-full flex flex-col">
+              <label class="text-sm mb-1">Harga Barang:</label>
+              <input type="text" value="3000" class="w-full border px-2 py-1 rounded-md text-gray-900 bg-gray-50 text-sm">
+            </div>
+            <div class="w-full flex flex-col">
+              <label class="text-sm mb-1">Stok Barang:</label>
+              <input type="text" value="50" class="w-full border px-2 py-1 rounded-md text-gray-900 bg-gray-50 text-sm">
+            </div>
+          </div>
+          <button type="button" onclick="updateData('edit-1')" name="button" class="flex items-center gap-2 bg-sky-500 hover:bg-sky-600 px-3 py-2 text-white rounded-md text-sm"><i class="fa-solid fa-floppy-disk"></i> <span>Simpan perubahan</span></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="./js/sweetalert2.min.js"></script>
+<script src="./js/all.min.js"></script>
+<script src="./js/script.js"></script>
+</body>
+
+</html>
