@@ -88,6 +88,9 @@ const closeModal = (modalId) => {
   modal.classList.add('hidden');
 }
 
+const toggleSidebar = () => {
+  $('#sidebar').toggle();
+}
 
 const menuToggle = document.getElementById('menu-toggle');
 const sidebar = document.querySelector('.bg-gray-200');

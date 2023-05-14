@@ -16,50 +16,64 @@
 
 <body>
   <div class="flex flex-row h-screen bg-gray-50">
-    <aside class="w-2/12 bg-white border-r">
-      <div class="flex justify-center items-center gap-2 p-2">
-        <img src="./img/logo.jpeg" alt="" class="w-14">
-        <h2 class="hidden md:inline font-bold text-teal-800">Morning Coffee</h2>
+    <aside id="sidebar" class="hidden md:block fixed md:relative left-0 top-0 w-5/12 md:w-2/12 h-full z-10 ">
+      <div class=" flex flex-col justify-between bg-gray-400 border-r bg-white shadow-lg h-full">
+        <div>
+          <div class="flex justify-center items-center gap-2 p-2">
+            <img src="./img/logo.jpeg" alt="" class="w-14">
+            <h2 class="hidden md:inline font-bold text-teal-800">Morning Coffee</h2>
+          </div>
+          <ul class="space-y-2 m-4 text-sm">
+            <li class="flex justify-center md:justify-start items-center hover:bg-gray-100 rounded-lg px-3 py-2">
+              <a href="./index.html" class="flex flex-col md:flex-row items-center text-gray-800 hover:text-gray-900 md:space-x-2 gap-1">
+                <i class="fa-solid fa-chart-pie"></i><span>Dashboard</span>
+              </a>
+            </li>
+            <li class="flex justify-center md:justify-start items-center hover:bg-gray-100 rounded-lg px-3 py-2">
+              <a href="./data.html" class="flex flex-col md:flex-row items-center text-gray-800 hover:text-gray-900 md:space-x-2 gap-1">
+                <i class="fa-solid fa-database"></i><span>Data Barang</span>
+              </a>
+            </li>
+            <li class="flex justify-center md:justify-start items-center hover:bg-gray-100 rounded-lg px-3 py-2">
+              <a href="./transaksi.html" class="flex flex-col md:flex-row items-center text-gray-800 hover:text-gray-900 md:space-x-2 gap-1">
+                <i class="fa-solid fa-cash-register"></i><span>Transaksi</span>
+              </a>
+            </li>
+            <li class="block md:hidden flex justify-center items-center">
+              <button onclick="toggleSidebar()"
+                class="flex justify-center items-center border border-gray-100 hover:bg-gray-100 h-8 w-8 p-2 rounded-lg text-gray-800 hover:text-gray-900">
+                <i class="fa-solid fa-chevron-left"></i></span>
+                </a>
+            </li>
+          </ul>
+        </div>
+        <div class="space-y-2 m-4 text-sm">
+          <hr>
+          <div class="flex flex-col md:flex-row justify-center items-center gap-3">
+            <a href="#"
+              class="flex justify-center md:justify-start items-center hover:bg-gray-100 rounded-lg px-3 py-2 text-gray-800 hover:text-gray-900">
+              <i class="fa-solid fa-gears"></i></span>
+            </a>
+            <a href="./login.html"
+              class="flex justify-center md:justify-start items-center hover:bg-gray-100 rounded-lg px-3 py-2 text-gray-800 hover:text-gray-900">
+              <i class="fa-solid fa-right-from-bracket"></i></span>
+            </a>
+          </div>
+        </div>
       </div>
-      <ul class="space-y-2 m-4 text-sm">
-        <li class="flex justify-center md:justify-start items-center hover:bg-gray-100 rounded-lg px-3 py-2">
-          <a href="./index.html" class="text-gray-800 hover:text-gray-900 md:space-x-2">
-            <i class="fa-solid fa-chart-pie"></i><span class="hidden md:inline">Dashboard</span>
-          </a>
-        </li>
-        <li class="flex justify-center md:justify-start items-center hover:bg-gray-100 rounded-lg px-3 py-2">
-          <a href="./data.html" class="text-gray-800 hover:text-gray-900 md:space-x-2">
-            <i class="fa-solid fa-database"></i><span class="hidden md:inline">Data Barang</span>
-          </a>
-        </li>
-        <li class="flex justify-center md:justify-start items-center hover:bg-gray-100 rounded-lg px-3 py-2">
-          <a href="#" class="text-gray-800 hover:text-gray-900 md:space-x-2">
-            <i class="fa-solid fa-cash-register"></i><span class="hidden md:inline">Transaksi</span>
-          </a>
-        </li>
-        <li class="flex justify-center md:justify-start hover:bg-gray-100 rounded-lg px-3 py-2">
-          <a href="#" class="text-gray-800 hover:text-gray-900 md:space-x-2">
-            <i class="fa-solid fa-gears"></i><span class="hidden md:inline">Setting</span>
-          </a>
-        </li>
-      </ul>
-      <hr>
-      <ul class="space-y-2 m-4 text-sm">
-        <li class="flex justify-center md:justify-start hover:bg-gray-100 rounded-lg px-3 py-2">
-          <a href="./login.html" class="text-gray-800 hover:text-gray-900 md:space-x-2">
-            <i class="fa-solid fa-right-from-bracket"></i><span class="hidden md:inline">Log Out</span>
-          </a>
-        </li>
-      </ul>
     </aside>
-    <div class="w-10/12 flex flex-col">
+    <div class="w-auto md:w-10/12 flex flex-col overflow-x-hidden">
       <!-- Aside -->
       <nav class="w-full bg-white">
         <!-- Navbar content -->
         <div class="flex justify-between border-b items-center py-2 px-4 gap-3">
+
+          <button onclick="toggleSidebar()" class="bblock md:hidden g-gray-100 hover:bg-gray-200 text-gray-800 px-3 py-1 rounded-lg"><i
+              class="fa-solid fa-bars"></i></button>
           <div class="flex justify-center items-center gap-2">
             <input type="text" placeholder="Cari barang disini..." class="w-full border px-3 py-2 rounded-lg text-xs">
-            <button class="bg-sky-500 hover:bg-sky-600 text-white px-3 py-1 rounded-lg"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button class="bg-sky-500 hover:bg-sky-600 text-white px-3 py-1 rounded-lg"><i
+                class="fa-solid fa-magnifying-glass"></i></button>
           </div>
           <div class="hidden md:flex justify-center items-center gap-3">
             <h2 class="font-bold text-sm text-gray-800 bg-gray-100 px-3 py-1 rounded-lg">Administrator</h2>
