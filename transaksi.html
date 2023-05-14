@@ -17,7 +17,7 @@
 <body>
   <div class="flex flex-row h-screen bg-gray-50">
     <aside id="sidebar" class="hidden md:block fixed md:relative left-0 top-0 w-5/12 md:w-2/12 h-full z-10 ">
-      <div class=" flex flex-col justify-between bg-gray-400 border-r bg-white shadow-lg h-full">
+      <div class=" flex flex-col justify-between bg-gray-400 bg-white shadow-lg md:shadow-none md:border-r h-full">
         <div>
           <div class="flex justify-center items-center gap-2 p-2">
             <img src="./img/logo.jpeg" alt="" class="w-14">
@@ -66,7 +66,7 @@
       <!-- Aside -->
       <nav class="w-full bg-white">
         <!-- Navbar content -->
-        <div class="flex justify-between border-b items-center py-2 px-4 gap-3">
+        <div class="flex justify-between items-center border-b py-2 px-4 gap-3">
 
           <button onclick="toggleSidebar()" class="bblock md:hidden g-gray-100 hover:bg-gray-200 text-gray-800 px-3 py-1 rounded-lg"><i
               class="fa-solid fa-bars"></i></button>
@@ -82,9 +82,9 @@
         </div>
       </nav>
       <!-- Main content -->
-      <main class="bg-gray-50 overflow-y-auto p-5">
+      <main class="bg-gray-50 overflow-y-auto p-2 md:p-5">
         <!-- Main content -->
-        <div class="bg-white p-8 rounded-lg shadow space-y-3">
+        <div class="bg-white p-5 md:p-8 rounded-lg shadow-sm space-y-3">
           <div class="space-y-2">
             <h1 class="font-bold text-2xl">Form Transaksi</h1>
             <p class="text-sm text-gray-700">Lorem ipsum dolor sit amet consectetur adipisicing elit. In, quis?</p>
