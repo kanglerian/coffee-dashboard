@@ -1,7 +1,19 @@
 
-$(document).ready(function() {
+$(document).ready(function () {
   $('.table-tailwindcss ').DataTable();
 });
+
+const shorcut = () => {
+  document.addEventListener('keydown', (e) => {
+    if(e.key === '+'){
+      addItem();
+    }else if(e.key === 'Enter'){
+      checkout();
+    }
+  })
+}
+
+shorcut();
 
 const updateData = (data) => {
   Swal.fire({
@@ -18,18 +30,29 @@ const saveData = () => {
     title: 'Data telah tersimpan!',
     icon: 'success',
     confirmButtonColor: '#2563eb',
-  confirmButtonText: 'Tutup',
+    confirmButtonText: 'Tutup',
 
   })
 }
 
 const checkout = () => {
   Swal.fire({
-    title: 'Transaksi berhasil!',
-    icon: 'success',
+    title: 'Anda yakin sudah betul?',
+    text: "Ketika setuju berarti berhasil membeli?",
+    icon: 'warning',
+    showCancelButton: true,
     confirmButtonColor: '#2563eb',
-  confirmButtonText: 'Tutup',
-
+    cancelButtonColor: '#dc2626',
+    confirmButtonText: 'Ya, bayar!',
+    cancelButtonText: 'Tidak, batalkan!',
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire(
+        'Transaksi berhasil!',
+        'Data berhasil disimpan',
+        'success'
+      )
+    }
   })
 }
 
@@ -41,8 +64,8 @@ const confirmDelete = () => {
     showCancelButton: true,
     confirmButtonColor: '#2563eb',
     cancelButtonColor: '#dc2626',
-  confirmButtonText: 'Ya, hapus!',
-  cancelButtonText: 'Tidak, batalkan!',
+    confirmButtonText: 'Ya, hapus!',
+    cancelButtonText: 'Tidak, batalkan!',
   }).then((result) => {
     if (result.isConfirmed) {
       Swal.fire(
