@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="./css/sweetalert2.min.css">
   <link rel="stylesheet" href="./css/custom.css">
   <script src="https://cdn.tailwindcss.com"></script>
-  <title>Data Barang - Morning Coffee</title>
+  <title>Rekap Transaksi - Morning Coffee</title>
 </head>
 
 <body>
@@ -70,7 +70,7 @@
       <!-- Aside -->
       <nav class="w-full bg-white">
         <!-- Navbar content -->
-        <div class="flex justify-between border-b items-center py-2 px-4 gap-3">
+        <div class="flex justify-between items-center border-b py-2 px-4 gap-3">
 
           <button onclick="toggleSidebar()" class="bblock md:hidden g-gray-100 hover:bg-gray-200 text-gray-800 px-3 py-1 rounded-lg"><i
               class="fa-solid fa-bars"></i></button>
@@ -86,11 +86,11 @@
         </div>
       </nav>
       <!-- Main content -->
-      <main class="bg-gray-50 overflow-y-auto p-3 md:p-5">
+      <main class="bg-gray-50 overflow-y-auto p-2 md:p-5">
         <!-- Main content -->
-        <div class="bg-white p-4 md:p-8 rounded-lg shadow-sm space-y-3">
+        <div class="bg-white p-5 md:p-8 rounded-lg shadow-sm space-y-3">
           <div class="space-y-2">
-            <h1 class="font-bold text-2xl">Data Barang</h1>
+            <h1 class="font-bold text-2xl">Rekap Transaksi</h1>
             <p class="text-sm text-gray-700">Lorem ipsum dolor sit amet consectetur adipisicing elit. In, quis?</p>
           </div>
           <hr>
@@ -98,22 +98,30 @@
             <table id="transaction" class="table-tailwindcss w-full text-sm text-left text-gray-800">
               <thead class="bg-gray-50">
                 <tr>
-                  <th class="px-6 py-2 rounded-l-lg">Kode</th>
-                  <th class="px-6 py-2">Nama Barang</th>
-                  <th class="px-6 py-2">Harga</th>
-                  <th class="px-6 py-2">Stok</th>
+                  <th class="px-6 py-2 rounded-l-lg">No. Transaksi</th>
+                  <th class="px-6 py-2">No. Invoice</th>
+                  <th class="px-6 py-2">Tanggal</th>
+                  <th class="px-6 py-2">Total Item</th>
+                  <th class="px-6 py-2">Total Harga</th>
+                  <th class="px-6 py-2">Status</th>
+                  <th class="px-6 py-2 rounded-r-lg">Aksi</th>
                 </tr>
               </thead>
               <tbody class="text-gray-700" id="result">
                 <tr class="bg-white border-b">
-                  <td class="px-6 py-2">BR001</td>
-                  <td class="px-6 py-2">Indomie Goreng</td>
-                  <td class="px-6 py-2">Rp3.000</td>
-                  <td class="px-6 py-2">50</td>
+                  <td class="px-6 py-2">TRX202305160001</td>
+                  <td class="px-6 py-2">INV001234545544</td>
+                  <td class="px-6 py-2">16 Mei 2023</td>
+                  <td class="px-6 py-2">23</td>
+                  <td class="px-6 py-2">Rp50.000</td>
+                  <td class="px-6 py-2">Selesai</td>
+                  <td class="px-6 py-2 space-y-1 md:space-y-0">
+                    <a href="./detail.html" class="px-2 py-1 bg-amber-400 hover:bg-amber-500 rounded-md text-white"><i class="fa-solid fa-edit"></i></a>
+                    <button onclick="confirmDelete()" class="px-2 py-1 bg-red-500 hover:bg-red-600 rounded-md text-white"><i class="fa-solid fa-trash"></i></button>
+                  </td>
                 </tr>
               </tbody>
             </table>
-
           </div>
         </div>
       </main>
@@ -124,52 +132,46 @@
 
   </div>
 </div>
-
-<div id="edit-1" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0  max-h-full flex justify-center items-center">
-  <div class="relative w-full max-w-md max-h-screen">
-    <div class="fixed inset-0 bg-black bg-opacity-70"></div>
-    <div class="relative bg-white rounded-lg shadow">
-      <button onclick="closeModal('edit-1')" type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-      <div class="p-6 text-left">
-        <div class="space-y-1">
-          <h3 class="font-bold text-gray-900">Edit Barang</h3>
-          <p class="text-sm text-gray-700">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-        </div>
-        <hr class="my-3">
-        <form action="#" method="post">
-          <div class="space-y-2 mb-3">
-            <div class="w-full flex flex-col">
-              <label class="text-sm mb-1">Kode Barang:</label>
-              <input type="text" value="BR001" class="w-full border px-2 py-1 rounded-md text-gray-900 bg-gray-50 text-sm">
-            </div>
-            <div class="w-full flex flex-col">
-              <label class="text-sm mb-1">Nama Barang:</label>
-              <input type="text" value="Indomie Goreng" class="w-full border px-2 py-1 rounded-md text-gray-900 bg-gray-50 text-sm">
-            </div>
-            <div class="w-full flex flex-col">
-              <label class="text-sm mb-1">Harga Barang:</label>
-              <input type="text" value="3000" class="w-full border px-2 py-1 rounded-md text-gray-900 bg-gray-50 text-sm">
-            </div>
-            <div class="w-full flex flex-col">
-              <label class="text-sm mb-1">Stok Barang:</label>
-              <input type="text" value="50" class="w-full border px-2 py-1 rounded-md text-gray-900 bg-gray-50 text-sm">
-            </div>
-          </div>
-          <button type="button" onclick="updateData('edit-1')" name="button" class="flex items-center gap-2 bg-sky-500 hover:bg-sky-600 px-3 py-2 text-white rounded-md text-sm"><i class="fa-solid fa-floppy-disk"></i> <span>Simpan perubahan</span></button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script src="./js/sweetalert2.min.js"></script>
 <script src="./js/all.min.js"></script>
 <script src="./js/script.js"></script>
+<script>
+$(document).ready(function() {
+  $('.product').select2();
+});
+</script>
+<script type="text/javascript">
+
+const addItem = () => {
+  $('#result').append(`
+    <tr class="bg-white border-b">
+    <td class="px-6 py-2">BC001</td>
+    <td class="px-6 py-2">
+    <select class="product" name="states[]">
+      <option value="AL">Indomie Goreng</option>
+      <option value="WY">Sedap Goreng</option>
+    </select>
+    </td>
+    <td class="px-6 py-2">Rp3.000</td>
+    <td class="px-6 py-2">
+      <input type="number" placeholder="0" class="border px-2 py-1 rounded-md text-gray-900 bg-gray-50 text-sm">
+    </td>
+    <td class="px-6 py-2">Rp6.000</td>
+    <td class="px-6 py-2 space-y-1 md:space-y-0">
+    <button onclick="deleteItem(this)" class="px-2 py-1 bg-red-500 hover:bg-red-600 rounded-md text-white"><i class="fa-solid fa-circle-xmark"></i></button>
+    <button onclick="addItem()" class="px-2 py-1 bg-sky-500 hover:bg-sky-600 rounded-md text-white"><i class="fa-solid fa-circle-plus"></i></button>
+    </td>
+    </tr>
+    `)
+    $('.product').select2();
+  }
+  const deleteItem = (element) => {
+    $(element).closest('tr').remove();
+  }
+  </script>
 </body>
 
 </html>
