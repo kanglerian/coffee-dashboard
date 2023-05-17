@@ -16,31 +16,32 @@
 
 <body>
   <div class="flex flex-row h-screen bg-gray-50">
-    <aside id="sidebar" class="hidden md:block fixed md:relative left-0 top-0 w-5/12 md:w-1/12 h-full z-10">
+    <aside id="sidebar" class="hidden md:block fixed md:relative left-0 top-0 w-5/12 md:w-2/12 h-full z-10">
       <div class=" flex flex-col justify-between bg-gray-400 border-r bg-white shadow-lg md:shadow-none md:border-r h-full">
         <div>
-          <div class="flex justify-center items-center gap-2 p-2">
-            <img src="./img/logo.jpeg" alt="" class="w-14">
+          <div class="flex flex-col justify-center text-center items-center gap-2 p-2">
+            <img src="./img/logo.jpeg" alt="logo" class="w-14">
+            <h2 class="text-lg font-bold text-emerald-800">Morning Coffee</h2>
           </div>
           <ul class="space-y-2 m-2 text-sm text-center">
             <li class="flex justify-center items-center hover:bg-gray-100 rounded-lg px-3 py-2">
-              <a href="./index.html" class="flex flex-col justify-center items-center text-gray-800 hover:text-gray-900 gap-1">
-                <i class="fa-solid fa-chart-pie"></i><span class="text-xs">Dashboard</span>
+              <a href="./index.html" class="flex flex-col justify-center items-center text-gray-800 hover:text-gray-900 gap-2">
+                <i class="fa-solid fa-chart-pie fa-2x"></i><span class="text-sm">Dashboard</span>
               </a>
             </li>
             <li class="flex justify-center items-center hover:bg-gray-100 rounded-lg px-3 py-2">
-              <a href="./data.html" class="flex flex-col justify-center items-center text-gray-800 hover:text-gray-900 gap-1">
-                <i class="fa-solid fa-database"></i><span class="text-xs">Data Barang</span>
+              <a href="./data.html" class="flex flex-col justify-center items-center text-gray-800 hover:text-gray-900 gap-2">
+                <i class="fa-solid fa-database fa-2x"></i><span class="text-sm">Data Barang</span>
               </a>
             </li>
             <li class="flex justify-center items-center hover:bg-gray-100 rounded-lg px-3 py-2">
-              <a href="./transaksi.html" class="flex flex-col justify-center items-center text-gray-800 hover:text-gray-900 gap-1">
-                <i class="fa-solid fa-cash-register"></i><span class="text-xs">Transaksi</span>
+              <a href="./transaksi.html" class="flex flex-col justify-center items-center text-gray-800 hover:text-gray-900 gap-2">
+                <i class="fa-solid fa-cash-register fa-2x"></i><span class="text-sm">Transaksi</span>
               </a>
             </li>
             <li class="flex justify-center items-center hover:bg-gray-100 rounded-lg px-3 py-2">
-              <a href="./rekap.html" class="flex flex-col justify-center items-center text-gray-800 hover:text-gray-900 gap-1">
-                <i class="fa-solid fa-file-invoice"></i><span class="text-xs">Rekap Transaksi</span>
+              <a href="./rekap.html" class="flex flex-col justify-center items-center text-gray-800 hover:text-gray-900 gap-2">
+                <i class="fa-solid fa-file-invoice fa-2x"></i><span class="text-sm">Rekap Transaksi</span>
               </a>
             </li>
             <li class="block md:hidden flex justify-center items-center">
@@ -53,16 +54,13 @@
         </div>
         <div class="space-y-2 m-4 text-sm">
           <hr>
-          <div class="flex flex-col justify-center items-center gap-3">
-            <a href="#"
-              class="flex justify-center md:justify-start items-center hover:bg-gray-100 rounded-lg px-3 py-2 text-gray-800 hover:text-gray-900">
-              <i class="fa-solid fa-gears"></i></span>
-            </a>
-            <a href="./login.html"
-              class="flex justify-center md:justify-start items-center hover:bg-gray-100 rounded-lg px-3 py-2 text-gray-800 hover:text-gray-900">
-              <i class="fa-solid fa-right-from-bracket"></i></span>
-            </a>
-          </div>
+          <ul class="space-y-2 m-2 text-sm text-center">
+            <li class="flex justify-center items-center hover:bg-gray-100 rounded-lg px-3 py-2">
+              <a href="#" class="flex flex-col justify-center items-center text-gray-800 hover:text-gray-900 gap-2">
+                <i class="fa-solid fa-gear fa-2x"></i><span class="text-sm">Setting</span>
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </aside>
